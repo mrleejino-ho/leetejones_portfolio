@@ -37,7 +37,6 @@ const profile = {
   facebook: "https://www.facebook.com/tej.lee.31",
   location: "Cabadbaran City, Agusan del Norte, Philippines",
   github: "https://github.com/mrleejino-ho",
-  secondaryGithub: "https://github.com/mrlee-jino",
   linkedin: "",
   resume: "",
 };
@@ -446,16 +445,6 @@ function App() {
                         Find me on GitHub <ArrowUpRight size={18} />
                       </a>
                     )}
-                    {profile.secondaryGithub && (
-                      <a
-                        className="text-link"
-                        href={profile.secondaryGithub}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        More projects on GitHub <ArrowUpRight size={17} />
-                      </a>
-                    )}
                     {profile.resume && (
                       <a className="text-link" href={profile.resume}>
                         View résumé <ArrowUpRight size={17} />
@@ -523,18 +512,6 @@ function App() {
           >
             <Github size={19} />
           </a>
-          {profile.secondaryGithub && (
-            <a
-              href={profile.secondaryGithub}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub — mrlee-jino"
-              title="GitHub — mrlee-jino"
-            >
-              <Github size={19} />
-              <span className="secondary-account-label">mrlee-jino</span>
-            </a>
-          )}
           <a
             href={profile.facebook}
             target="_blank"

@@ -940,9 +940,6 @@ h2 > span {
   align-items: center;
   gap: 7px;
 }
-.secondary-account-label {
-  font: 10px monospace;
-}
 .contact-details {
   display: flex;
   flex-wrap: wrap;

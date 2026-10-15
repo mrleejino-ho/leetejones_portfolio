@@ -5,6 +5,9 @@ import {
   ArrowDown,
   Github,
   Linkedin,
+  Facebook,
+  Phone,
+  MapPin,
   Menu,
   X,
   Terminal,
@@ -21,7 +24,11 @@ import "./styles.css";
 const profile = {
   name: "Lee Tejones",
   title: "Computer Engineer | Developer",
-  email: "",
+  email: "mrleetejones@gmail.com",
+  phone: "09639660531",
+  phoneHref: "+639639660531",
+  facebook: "https://www.facebook.com/tej.lee.31",
+  location: "Cabadbaran City, Agusan del Norte, Philippines",
   github: "https://github.com/mrleejino-ho",
   secondaryGithub: "https://github.com/mrlee-jino",
   linkedin: "",
@@ -400,6 +407,21 @@ function App() {
                 </a>
               )}
             </div>
+            <div className="contact-details">
+              <a href={`tel:${profile.phoneHref}`}>
+                <Phone size={17} />
+                <span>{profile.phone}</span>
+              </a>
+              <a href={profile.facebook} target="_blank" rel="noreferrer">
+                <Facebook size={17} />
+                <span>Facebook — Lee Tejones</span>
+                <ArrowUpRight size={14} />
+              </a>
+              <p>
+                <MapPin size={17} />
+                <span>{profile.location}</span>
+              </p>
+            </div>
             {copyError && (
               <p role="status">
                 Couldn’t copy automatically. You can select the email above.
@@ -441,6 +463,15 @@ function App() {
               <span className="secondary-account-label">mrlee-jino</span>
             </a>
           )}
+          <a
+            href={profile.facebook}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Facebook — Lee Tejones"
+            title="Facebook — Lee Tejones"
+          >
+            <Facebook size={19} />
+          </a>
           {profile.linkedin && (
             <a
               href={profile.linkedin}

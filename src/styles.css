@@ -943,3 +943,39 @@ h2 > span {
 .secondary-account-label {
   font: 10px monospace;
 }
+.contact-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+  position: relative;
+  z-index: 1;
+  margin-top: 26px;
+  color: #bbc8ae;
+  font-size: 12px;
+}
+.contact-details a,
+.contact-details p {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0;
+}
+.contact-details a:hover {
+  color: #b5f97a;
+}
+.contact-details svg {
+  flex-shrink: 0;
+  color: #a5c18c;
+}
+@media (max-width: 720px) {
+  .contact-details {
+    flex-direction: column;
+    line-height: 1.7;
+  }
+  .contact-details p {
+    align-items: flex-start;
+  }
+  .contact-details p svg {
+    margin-top: 3px;
+  }
+}

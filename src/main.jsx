@@ -53,6 +53,7 @@ const projects = [
     initials: "BT",
     repo: "",
     live: "https://buzztap-business.vercel.app/",
+    screenshot: "/projects/buzztap-business.png",
   },
   {
     id: "02",
@@ -66,6 +67,7 @@ const projects = [
     initials: "BT",
     repo: "",
     live: "https://buzztap-admin.vercel.app/",
+    screenshot: "/projects/buzztap-admin.png",
   },
   {
     id: "03",
@@ -79,6 +81,7 @@ const projects = [
     initials: "PV",
     repo: "",
     live: "https://pvmonitoringsystem.vercel.app/",
+    screenshot: "/projects/pv.png",
   },
   {
     id: "04",
@@ -92,6 +95,7 @@ const projects = [
     initials: "AR",
     repo: "",
     live: "https://ar-ms-nu.vercel.app/",
+    screenshot: "/projects/arms.png",
   },
 ];
 const skills = [
@@ -115,6 +119,26 @@ const skills = [
   },
 ];
 function ProjectArt({ project }) {
+  const [imageFailed, setImageFailed] = useState(false);
+  if (project.screenshot && !imageFailed) {
+    return (
+      <a
+        className="project-screenshot"
+        href={project.live}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`Visit ${project.name}`}
+      >
+        <img
+          src={project.screenshot}
+          alt={`${project.name} application screenshot`}
+          loading="lazy"
+          decoding="async"
+          onError={() => setImageFailed(true)}
+        />
+      </a>
+    );
+  }
   return (
     <div className="project-art project-cover" aria-hidden="true">
       <div className="art-top">

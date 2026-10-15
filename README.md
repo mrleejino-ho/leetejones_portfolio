@@ -20,7 +20,7 @@ Open the address printed by Vite in your local terminal. In this cloud workspace
 Edit `src/main.jsx`:
 
 - `profile`: name, title, email, GitHub, LinkedIn, and optional résumé URL. Empty contact fields stay hidden. GitHub currently points to the repository owner's account; confirm it is your preferred public profile.
-- `projects`: contains your four supplied live applications. Add verified descriptions, technology stacks, screenshots, and optional source repository URLs. Empty stacks and repository links are hidden.
+- `projects`: contains your four supplied live applications. Add verified descriptions, technology stacks, and optional source repository URLs. Screenshot previews are stored in `public/projects/` and mapped by each project’s `screenshot` field. Empty stacks and repository links are hidden.
 - `skills`: replace suggested skill areas with technologies you actually use.
 - About and hero copy: personalize your interests and background.
 
@@ -83,4 +83,4 @@ Import the same GitHub repository into Netlify. Use `npm run build`, publish dir
 - [PV Monitoring System](https://pvmonitoringsystem.vercel.app/)
 - [AR-MS](https://ar-ms-nu.vercel.app/)
 
-These URLs were provided by Lee. Outbound requests to these hosts were blocked by the cloud network policy, so features, stacks, and external availability have not been independently verified. Project artwork is decorative branding, not application screenshots. Add your role, technologies, and outcomes to turn these into detailed case studies.
+These URLs were provided by Lee. Outbound requests to these hosts were blocked by the cloud network policy, so features, stacks, and external availability have not been independently verified. Project previews use Lee’s supplied application screenshots. Each image links to the matching live application and preserves the full screenshot without cropping. If an image fails to load, the decorative branding remains available as a fallback. Add your role, technologies, and outcomes to turn these into detailed case studies.

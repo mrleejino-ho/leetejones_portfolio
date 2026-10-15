@@ -1036,3 +1036,21 @@ h2 > span {
     overflow-y: auto;
   }
 }
+.project-screenshot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  background: #10140e;
+  border-bottom: 1px solid #2c3329;
+  overflow: hidden;
+}
+.project-screenshot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.project-screenshot:hover {
+  background: #1b2315;
+}

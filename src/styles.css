@@ -935,3 +935,11 @@ h2 > span {
     font-size: 9px;
   }
 }
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.secondary-account-label {
+  font: 10px monospace;
+}

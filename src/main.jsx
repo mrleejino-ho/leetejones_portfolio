@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { createRoot } from "react-dom/client";
 import {
   ArrowUpRight,
-  ArrowDown,
   Github,
   Linkedin,
   Facebook,
@@ -18,6 +17,14 @@ import {
   Check,
   Copy,
 } from "lucide-react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  NavLink,
+  useLocation,
+} from "react-router-dom";
 import "./styles.css";
 
 // Replace these values with your verified details. Empty links are intentionally hidden.
@@ -128,6 +135,22 @@ function ProjectArt({ project }) {
   );
 }
 function App() {
+  const { pathname } = useLocation();
+  const mainRef = useRef(null);
+  useEffect(() => {
+    const name =
+      {
+        "/": "Home",
+        "/about": "About",
+        "/projects": "Projects",
+        "/skills": "Skills",
+        "/contact": "Contact",
+      }[pathname] || "Page not found";
+    document.title = `${name} | Lee Tejones — Computer Engineer & Developer`;
+    setMenu(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
+    mainRef.current?.focus({ preventScroll: true });
+  }, [pathname]);
   const [menu, setMenu] = useState(false);
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
@@ -143,25 +166,29 @@ function App() {
   }
   return (
     <>
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
       <header className="header">
-        <a className="logo" href="#home" aria-label="Lee Tejones home">
+        <Link className="logo" to="/" aria-label="Lee Tejones home">
           lt<span>.</span>
           <span className="logo-slash">/</span>
-        </a>
+        </Link>
         <nav className={menu ? "nav open" : "nav"} aria-label="Main navigation">
-          {["About", "Projects", "Skills", "Contact"].map((item) => (
-            <a
+          {["Home", "About", "Projects", "Skills", "Contact"].map((item) => (
+            <NavLink
               key={item}
-              href={`#${item.toLowerCase()}`}
+              to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+              end
               onClick={() => setMenu(false)}
             >
               {item}
-            </a>
+            </NavLink>
           ))}
         </nav>
-        <a className="header-cta" href="#contact">
+        <Link className="header-cta" to="/contact">
           Let’s talk <ArrowUpRight size={15} />
-        </a>
+        </Link>
         <button
           className="menu-toggle"
           onClick={() => setMenu(!menu)}
@@ -171,272 +198,317 @@ function App() {
           {menu ? <X /> : <Menu />}
         </button>
       </header>
-      <main>
-        <section id="home" className="hero shell">
-          <div className="hero-main">
-            <div className="eyebrow">
-              <span className="status-dot" /> A MIND FOR SYSTEMS. A PASSION FOR
-              BUILDING.
-            </div>
-            <h1>
-              Hi, I’m Lee.
-              <br />I turn ideas into
-              <br />
-              <span>working things.</span>
-            </h1>
-            <p className="hero-title">{profile.title}</p>
-            <p className="hero-description">
-              Exploring the space between hardware and software.
-              <br className="desktop-break" /> Building useful experiences, one
-              thoughtful detail at a time.
-            </p>
-            <div className="hero-actions">
-              <a href="#projects" className="button primary">
-                Explore my work <ArrowUpRight size={18} />
-              </a>
-              <a href="#about" className="text-link">
-                A little about me <ArrowDown size={16} />
-              </a>
-            </div>
-          </div>
-          <div className="terminal-wrap">
-            <div className="terminal">
-              <div className="terminal-bar">
-                <div className="window-dots">
-                  <i />
-                  <i />
-                  <i />
+      <main id="main-content" ref={mainRef} tabIndex={-1}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <section id="home" className="hero shell">
+                <div className="hero-main">
+                  <div className="eyebrow">
+                    <span className="status-dot" /> A MIND FOR SYSTEMS. A
+                    PASSION FOR BUILDING.
+                  </div>
+                  <h1>
+                    Hi, I’m Lee.
+                    <br />I turn ideas into
+                    <br />
+                    <span>working things.</span>
+                  </h1>
+                  <p className="hero-title">{profile.title}</p>
+                  <p className="hero-description">
+                    Exploring the space between hardware and software.
+                    <br className="desktop-break" /> Building useful
+                    experiences, one thoughtful detail at a time.
+                  </p>
+                  <div className="hero-actions">
+                    <Link to="/projects" className="button primary">
+                      Explore my work <ArrowUpRight size={18} />
+                    </Link>
+                    <Link to="/about" className="text-link">
+                      A little about me <ArrowUpRight size={16} />
+                    </Link>
+                  </div>
                 </div>
-                <span>lee@workspace: ~</span>
-                <Terminal size={14} />
-              </div>
-              <div className="terminal-body">
-                <p>
-                  <span className="green">❯</span> cat about-me.json
-                </p>
-                <pre>
-                  {
-                    '{\n  "name": "Lee Tejones",\n  "role": [\n    "Computer Engineer",\n    "Developer"\n  ],\n  "approach": "Stay curious",\n  "next": "Keep building"\n}'
-                  }
-                </pre>
-                <p>
-                  <span className="green">❯</span> <span className="cursor" />
-                </p>
-              </div>
-            </div>
-            <div className="terminal-caption">
-              <span>01 / ALWAYS A WORK IN PROGRESS</span>
-              <span>↳ THAT’S THE POINT.</span>
-            </div>
-          </div>
-          <div className="hero-footer">
-            <span>ENGINEERING MEETS CREATIVITY</span>
-            <a href="#about">
-              SCROLL TO EXPLORE <ArrowDown size={13} />
-            </a>
-          </div>
-        </section>
-        <section id="about" className="section shell about">
-          <div>
-            <p className="eyebrow section-label">
-              01 — THE PERSON BEHIND THE CODE
-            </p>
-            <h2>
-              Curiosity is the
-              <br />
-              starting point<span>.</span>
-            </h2>
-          </div>
-          <div className="about-copy">
-            <p>
-              I’m Lee Tejones, a Computer Engineer and Developer interested in
-              how things work — and how to make them work better.
-            </p>
-            <p>
-              This is my space to share what I build, explore ideas, and connect
-              with people who care about useful technology. My focus sits at the
-              intersection of software, hardware, and human experience.
-            </p>
-            <a className="text-link" href="#contact">
-              Let’s build something together <ArrowUpRight size={17} />
-            </a>
-          </div>
-        </section>
-        <section id="projects" className="section shell">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow section-label">
-                02 — IDEAS INTO IMPLEMENTATION
-              </p>
-              <h2>
-                Selected projects<span>.</span>
-              </h2>
-            </div>
-            <p>
-              A place for experiments,
-              <br />
-              systems, and things worth building.
-            </p>
-          </div>
-          <p className="content-note">
-            Four projects from my development work. Explore each application
-            below.
-          </p>
-          <div className="project-grid">
-            {projects.map((p) => (
-              <article className="project-card" key={p.id}>
-                <ProjectArt project={p} />
-                <div className="project-info">
-                  <div className="project-category">
-                    <span>{p.category}</span>
-                    <span>/{p.id}</span>
-                  </div>
-                  <h3>
-                    {p.name}
-                    <p.icon size={21} />
-                  </h3>
-                  <span className="project-status">Deployed project</span>
-                  <p>{p.description}</p>
-                  <div className="tags">
-                    {p.stack.map((s) => (
-                      <span key={s}>{s}</span>
-                    ))}
-                  </div>
-                  {(p.repo || p.live) && (
-                    <div className="project-links">
-                      {p.repo && (
-                        <a href={p.repo} target="_blank" rel="noreferrer">
-                          <Github size={15} /> Source code{" "}
-                          <ArrowUpRight size={14} />
-                        </a>
-                      )}
-                      {p.live && (
-                        <a href={p.live} target="_blank" rel="noreferrer">
-                          Live site <ArrowUpRight size={14} />
-                        </a>
-                      )}
+                <div className="terminal-wrap">
+                  <div className="terminal">
+                    <div className="terminal-bar">
+                      <div className="window-dots">
+                        <i />
+                        <i />
+                        <i />
+                      </div>
+                      <span>lee@workspace: ~</span>
+                      <Terminal size={14} />
                     </div>
-                  )}
+                    <div className="terminal-body">
+                      <p>
+                        <span className="green">❯</span> cat about-me.json
+                      </p>
+                      <pre>
+                        {
+                          '{\n  "name": "Lee Tejones",\n  "role": [\n    "Computer Engineer",\n    "Developer"\n  ],\n  "approach": "Stay curious",\n  "next": "Keep building"\n}'
+                        }
+                      </pre>
+                      <p>
+                        <span className="green">❯</span>{" "}
+                        <span className="cursor" />
+                      </p>
+                    </div>
+                  </div>
+                  <div className="terminal-caption">
+                    <span>01 / ALWAYS A WORK IN PROGRESS</span>
+                    <span>↳ THAT’S THE POINT.</span>
+                  </div>
                 </div>
-              </article>
-            ))}
-          </div>
-        </section>
-        <section id="skills" className="section shell">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow section-label">03 — THE TOOLBOX</p>
-              <h2>
-                Built on good foundations<span>.</span>
-              </h2>
-            </div>
-            <p>
-              Tools to explore.
-              <br />
-              Skills to keep sharpening.
-            </p>
-          </div>
-          <p className="content-note">
-            Suggested skill areas — customize these to reflect your experience.
-          </p>
-          <div className="skills-grid">
-            {skills.map((s) => (
-              <div className="skill-card" key={s.title}>
-                <s.icon className="skill-icon" size={25} />
-                <h3>{s.title}</h3>
-                <p>{s.text}</p>
-                <div className="tags">
-                  {s.tags.map((t) => (
-                    <span key={t}>{t}</span>
+                <div className="hero-footer">
+                  <span>ENGINEERING MEETS CREATIVITY</span>
+                  <Link to="/about">
+                    GET TO KNOW ME <ArrowUpRight size={13} />
+                  </Link>
+                </div>
+              </section>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <section id="about" className="section shell about">
+                <div>
+                  <p className="eyebrow section-label">
+                    01 — THE PERSON BEHIND THE CODE
+                  </p>
+                  <h1 className="page-title">
+                    Curiosity is the
+                    <br />
+                    starting point<span>.</span>
+                  </h1>
+                </div>
+                <div className="about-copy">
+                  <p>
+                    I’m Lee Tejones, a Computer Engineer and Developer
+                    interested in how things work — and how to make them work
+                    better.
+                  </p>
+                  <p>
+                    This is my space to share what I build, explore ideas, and
+                    connect with people who care about useful technology. My
+                    focus sits at the intersection of software, hardware, and
+                    human experience.
+                  </p>
+                  <Link className="text-link" to="/contact">
+                    Let’s build something together <ArrowUpRight size={17} />
+                  </Link>
+                </div>
+              </section>
+            }
+          />
+          <Route
+            path="/projects"
+            element={
+              <section id="projects" className="section shell">
+                <div className="section-heading">
+                  <div>
+                    <p className="eyebrow section-label">
+                      02 — IDEAS INTO IMPLEMENTATION
+                    </p>
+                    <h1 className="page-title">
+                      Selected projects<span>.</span>
+                    </h1>
+                  </div>
+                  <p>
+                    A place for experiments,
+                    <br />
+                    systems, and things worth building.
+                  </p>
+                </div>
+                <p className="content-note">
+                  Four projects from my development work. Explore each
+                  application below.
+                </p>
+                <div className="project-grid">
+                  {projects.map((p) => (
+                    <article className="project-card" key={p.id}>
+                      <ProjectArt project={p} />
+                      <div className="project-info">
+                        <div className="project-category">
+                          <span>{p.category}</span>
+                          <span>/{p.id}</span>
+                        </div>
+                        <h3>
+                          {p.name}
+                          <p.icon size={21} />
+                        </h3>
+                        <span className="project-status">Deployed project</span>
+                        <p>{p.description}</p>
+                        <div className="tags">
+                          {p.stack.map((s) => (
+                            <span key={s}>{s}</span>
+                          ))}
+                        </div>
+                        {(p.repo || p.live) && (
+                          <div className="project-links">
+                            {p.repo && (
+                              <a href={p.repo} target="_blank" rel="noreferrer">
+                                <Github size={15} /> Source code{" "}
+                                <ArrowUpRight size={14} />
+                              </a>
+                            )}
+                            {p.live && (
+                              <a href={p.live} target="_blank" rel="noreferrer">
+                                Live site <ArrowUpRight size={14} />
+                              </a>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </article>
                   ))}
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
-        <section id="contact" className="shell contact-section">
-          <div className="contact-panel">
-            <p className="eyebrow section-label">04 — WHAT’S NEXT?</p>
-            <h2>
-              Good things start
-              <br />
-              with a conversation<span>.</span>
-            </h2>
-            <p>
-              Have an idea, a question, or an interesting challenge?
-              <br />
-              Let’s see what we can build together.
-            </p>
-            <div className="contact-actions">
-              {profile.email ? (
-                <>
-                  <a
-                    className="button primary"
-                    href={`mailto:${profile.email}`}
-                  >
-                    Say hello <Mail size={18} />
-                  </a>
-                  <button className="copy-button" onClick={copyEmail}>
-                    {copied ? <Check size={17} /> : <Copy size={17} />}{" "}
-                    {copied ? "Copied!" : profile.email}
-                  </button>
-                </>
-              ) : (
-                <a
-                  className="button primary"
-                  href={profile.github}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Find me on GitHub <ArrowUpRight size={18} />
-                </a>
-              )}
-              {profile.secondaryGithub && (
-                <a
-                  className="text-link"
-                  href={profile.secondaryGithub}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  More projects on GitHub <ArrowUpRight size={17} />
-                </a>
-              )}
-              {profile.resume && (
-                <a className="text-link" href={profile.resume}>
-                  View résumé <ArrowUpRight size={17} />
-                </a>
-              )}
-            </div>
-            <div className="contact-details">
-              <a href={`tel:${profile.phoneHref}`}>
-                <Phone size={17} />
-                <span>{profile.phone}</span>
-              </a>
-              <a href={profile.facebook} target="_blank" rel="noreferrer">
-                <Facebook size={17} />
-                <span>Facebook — Lee Tejones</span>
-                <ArrowUpRight size={14} />
-              </a>
-              <p>
-                <MapPin size={17} />
-                <span>{profile.location}</span>
-              </p>
-            </div>
-            {copyError && (
-              <p role="status">
-                Couldn’t copy automatically. You can select the email above.
-              </p>
-            )}
-            <div className="contact-decoration" aria-hidden="true">
-              {"{ }"}
-            </div>
-          </div>
-        </section>
+              </section>
+            }
+          />
+          <Route
+            path="/skills"
+            element={
+              <section id="skills" className="section shell">
+                <div className="section-heading">
+                  <div>
+                    <p className="eyebrow section-label">03 — THE TOOLBOX</p>
+                    <h1 className="page-title">
+                      Built on good foundations<span>.</span>
+                    </h1>
+                  </div>
+                  <p>
+                    Tools to explore.
+                    <br />
+                    Skills to keep sharpening.
+                  </p>
+                </div>
+                <p className="content-note">
+                  Suggested skill areas — customize these to reflect your
+                  experience.
+                </p>
+                <div className="skills-grid">
+                  {skills.map((s) => (
+                    <div className="skill-card" key={s.title}>
+                      <s.icon className="skill-icon" size={25} />
+                      <h3>{s.title}</h3>
+                      <p>{s.text}</p>
+                      <div className="tags">
+                        {s.tags.map((t) => (
+                          <span key={t}>{t}</span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <section id="contact" className="shell contact-section">
+                <div className="contact-panel">
+                  <p className="eyebrow section-label">04 — WHAT’S NEXT?</p>
+                  <h1 className="page-title">
+                    Good things start
+                    <br />
+                    with a conversation<span>.</span>
+                  </h1>
+                  <p>
+                    Have an idea, a question, or an interesting challenge?
+                    <br />
+                    Let’s see what we can build together.
+                  </p>
+                  <div className="contact-actions">
+                    {profile.email ? (
+                      <>
+                        <a
+                          className="button primary"
+                          href={`mailto:${profile.email}`}
+                        >
+                          Say hello <Mail size={18} />
+                        </a>
+                        <button className="copy-button" onClick={copyEmail}>
+                          {copied ? <Check size={17} /> : <Copy size={17} />}{" "}
+                          {copied ? "Copied!" : profile.email}
+                        </button>
+                      </>
+                    ) : (
+                      <a
+                        className="button primary"
+                        href={profile.github}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Find me on GitHub <ArrowUpRight size={18} />
+                      </a>
+                    )}
+                    {profile.secondaryGithub && (
+                      <a
+                        className="text-link"
+                        href={profile.secondaryGithub}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        More projects on GitHub <ArrowUpRight size={17} />
+                      </a>
+                    )}
+                    {profile.resume && (
+                      <a className="text-link" href={profile.resume}>
+                        View résumé <ArrowUpRight size={17} />
+                      </a>
+                    )}
+                  </div>
+                  <div className="contact-details">
+                    <a href={`tel:${profile.phoneHref}`}>
+                      <Phone size={17} />
+                      <span>{profile.phone}</span>
+                    </a>
+                    <a href={profile.facebook} target="_blank" rel="noreferrer">
+                      <Facebook size={17} />
+                      <span>Facebook — Lee Tejones</span>
+                      <ArrowUpRight size={14} />
+                    </a>
+                    <p>
+                      <MapPin size={17} />
+                      <span>{profile.location}</span>
+                    </p>
+                  </div>
+                  {copyError && (
+                    <p role="status">
+                      Couldn’t copy automatically. You can select the email
+                      above.
+                    </p>
+                  )}
+                  <div className="contact-decoration" aria-hidden="true">
+                    {"{ }"}
+                  </div>
+                </div>
+              </section>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <section className="section shell not-found">
+                <p className="eyebrow">404 — PAGE NOT FOUND</p>
+                <h1 className="page-title">This page took a wrong turn.</h1>
+                <p>Head home to explore the portfolio.</p>
+                <Link className="button primary" to="/">
+                  Back to home <ArrowUpRight size={18} />
+                </Link>
+              </section>
+            }
+          />
+        </Routes>
       </main>
       <footer className="shell footer">
-        <a href="#home" className="logo">
+        <Link to="/" className="logo">
           lt<span>.</span>
-        </a>
+        </Link>
         <p>
           © {new Date().getFullYear()} Lee Tejones <span>·</span> Built with
           curiosity & React.
@@ -482,12 +554,16 @@ function App() {
               <Linkedin size={19} />
             </a>
           )}
-          <a href="#home" aria-label="Back to top">
+          <Link to="/" aria-label="Back to home">
             <ArrowUpRight size={20} />
-          </a>
+          </Link>
         </div>
       </footer>
     </>
   );
 }
-createRoot(document.getElementById("root")).render(<App />);
+createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+);

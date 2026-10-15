@@ -1,6 +1,8 @@
 # Lee Tejones · Personal Portfolio
 
-A responsive dark developer portfolio built with React 19, Tailwind CSS 4, Vite, and Lucide icons.
+A responsive dark developer portfolio built with React 19, React Router, Tailwind CSS 4, Vite, and Lucide icons.
+
+The persistent top navigation opens separate Home (`/`), About (`/about`), Projects (`/projects`), Skills (`/skills`), and Contact (`/contact`) pages. Each page highlights its navigation item and supports direct links, refreshes, and browser Back/Forward. Unknown routes show a recovery page.
 
 ## 1. Run locally
 
@@ -28,11 +30,13 @@ No experience, education, awards, client claims, or skill ratings were invented.
 
 ## 3. Understand the source
 
-- `src/main.jsx`: editable profile and project data, page sections, mobile navigation, and optional email-copy interaction.
+- `src/main.jsx`: editable profile and project data, page routes, shared navigation, and email-copy interaction.
 - `src/styles.css`: responsive design and Tailwind import. Tailwind utility classes are also available in JSX.
 - `public/favicon.svg`: LT favicon.
 - `index.html`: page title and search description.
 - `vite.config.js`: React and Tailwind build plugins.
+- `vercel.json`: SPA route fallback for direct page URLs on Vercel.
+- `public/_redirects`: equivalent route fallback for Netlify.
 
 There is no backend, database, or API key requirement. The optional email button opens the visitor's mail application; it does not submit a form.
 
@@ -63,7 +67,7 @@ If Git reports missing author identity, set your own name and email with `git co
 2. Import `mrleejino-ho/leetejones_portfolio` from GitHub and select `main` as the production branch.
 3. Select **Vite** as the framework. Use `npm run build` as the build command and `dist` as the output directory. Keep the repository root as the root directory.
 4. Click **Deploy**. No environment variables are required.
-5. Open the HTTPS URL Vercel assigns and check the navigation and links on a phone and desktop.
+5. Open the HTTPS URL Vercel assigns and check the navigation and links on a phone and desktop. Open and refresh `/projects` and `/contact` directly to confirm the deployed routing fallback works.
 6. Future pushes to `main` trigger production updates. Add a custom domain under the project's domain settings if desired.
 
 Deployment requires your hosting account and GitHub authorization. No live deployment has been created by this code setup.

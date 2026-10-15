@@ -979,3 +979,63 @@ h2 > span {
     margin-top: 3px;
   }
 }
+/* Persistent navigation shared by the separate portfolio pages. */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #0c0f0ef5;
+  backdrop-filter: blur(14px);
+}
+.nav a[aria-current="page"] {
+  color: #b5f97a;
+}
+.nav a {
+  padding-block: 8px;
+}
+#main-content {
+  min-height: calc(100svh - 210px);
+  outline: none;
+}
+#main-content > .section,
+#main-content > .contact-section {
+  padding-bottom: 70px;
+}
+.page-title {
+  font-size: clamp(30px, 3.2vw, 43px);
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+  font-weight: 500;
+  margin: 0;
+}
+.page-title > span {
+  color: #b5f97a;
+}
+.contact-panel .page-title {
+  font-size: 48px;
+}
+.not-found p {
+  margin-block: 22px;
+}
+.skip-link {
+  position: fixed;
+  top: -80px;
+  left: 20px;
+  z-index: 100;
+  background: #b5f97a;
+  color: #14200d;
+  padding: 12px 20px;
+  border-radius: 4px;
+}
+.skip-link:focus {
+  top: 12px;
+}
+@media (max-width: 720px) {
+  .contact-panel .page-title {
+    font-size: 35px;
+  }
+  .nav.open {
+    max-height: calc(100svh - 76px);
+    overflow-y: auto;
+  }
+}

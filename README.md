@@ -1,44 +1,82 @@
-# BuzzTap Admin
+# Lee Tejones · Personal Portfolio
 
-React and Vite admin interface backed by Supabase.
+A responsive dark developer portfolio built with React 19, Tailwind CSS 4, Vite, and Lucide icons.
 
-## Local Development
+## 1. Run locally
 
-1. Install Node.js and npm.
-2. Copy `.env.example` to `.env.local` and set the Supabase project URL and publishable key.
-3. Install dependencies with `npm install`.
-4. Start the local server with `npm run dev`.
+Use Node.js 22.12+ or Node.js 24 LTS and npm.
 
-Required client environment variables:
+```sh
+npm ci
+npm run dev
+```
 
-- `VITE_SUPABASE_URL`
-- `VITE_SUPABASE_PUBLISHABLE_KEY`
+Open the address printed by Vite in your local terminal. In this cloud workspace, if npm cannot write its default cache, use `npm ci --cache /workspace/.npm-cache`.
 
-Only use the Supabase publishable/anon key in this browser application. Never put a service-role key in a `VITE_*` variable.
+## 2. Add your information
 
-## Verification
+Edit `src/main.jsx`:
 
-- `npm run lint`
-- `npm run build`
+- `profile`: name, title, email, GitHub, LinkedIn, and optional résumé URL. Empty contact fields stay hidden. GitHub currently points to the repository owner's account; confirm it is your preferred public profile.
+- `projects`: contains your four supplied live applications. Add verified descriptions, technology stacks, screenshots, and optional source repository URLs. Empty stacks and repository links are hidden.
+- `skills`: replace suggested skill areas with technologies you actually use.
+- About and hero copy: personalize your interests and background.
 
-The production bundle is written to `dist/`. The repository does not currently have an automated test suite.
+A résumé can be placed at `public/resume.pdf` and linked with `resume: '/resume.pdf'`. Do not publish private information in a résumé without checking it first.
 
-## Supabase Prerequisites
+No experience, education, awards, client claims, or skill ratings were invented. Add an experience/education section once you have real roles, institutions, and dates to share.
 
-The SQL files in `supabase/migrations/` are incremental feature migrations, not a complete initial database schema. They depend on existing BuzzTap tables, constraints, helper functions, and policies. Before deployment:
+## 3. Understand the source
 
-1. Provision the complete baseline schema and required functions in a staging Supabase project.
-2. Apply migrations in timestamp order and verify each succeeds.
-3. Verify row-level security and admin checks for every table and RPC used by the app, including denial for non-admin and inactive accounts.
-4. Create and verify an active `ADMIN` profile for each administrator.
-5. Configure Supabase Auth site URL, redirect URLs, email delivery, and recovery flows for the production domain.
-6. Test treasury and purchase-request operations against staging data, including failed, repeated, and concurrent requests.
+- `src/main.jsx`: editable profile and project data, page sections, mobile navigation, and optional email-copy interaction.
+- `src/styles.css`: responsive design and Tailwind import. Tailwind utility classes are also available in JSX.
+- `public/favicon.svg`: LT favicon.
+- `index.html`: page title and search description.
+- `vite.config.js`: React and Tailwind build plugins.
 
-## Deployment Checklist
+There is no backend, database, or API key requirement. The optional email button opens the visitor's mail application; it does not submit a form.
 
-- Configure the two required environment variables in the hosting provider. These values are bundled into the public client; keep all privileged credentials server-side.
-- Configure SPA history fallback so direct navigation to routes such as `/customers` serves `index.html`.
-- Use a staging deployment to verify login, permissions, database reads/writes, exports, and mobile layouts before production.
-- Configure backups, monitoring, and a rollback procedure.
-- Do not treat the disabled user-management and Settings controls as operational. Business status management, user provisioning, platform settings, 2FA setup, and maintenance mode need secure persisted backend implementations.
-- Business purchase approvals credit BP from the treasury reserve; independently verify payment before approving. No payment processor is integrated.
+## 4. Validate your changes
+
+```sh
+npm run build
+npm run preview
+```
+
+Review desktop and mobile layouts, keyboard navigation, all outgoing links, contact details, and résumé contents. The production output is `dist/`.
+
+## 5. Push the source to GitHub
+
+From this repository, after reviewing your changes:
+
+```sh
+git add .
+git commit -m "Build Lee Tejones portfolio"
+git push origin HEAD:main
+```
+
+If Git reports missing author identity, set your own name and email with `git config user.name` and `git config user.email`. Do not copy someone else's identity. The source has not been pushed or deployed automatically.
+
+## 6. Deploy with Vercel (recommended)
+
+1. Sign in at https://vercel.com and choose **Add New → Project**.
+2. Import `mrleejino-ho/leetejones_portfolio` from GitHub and select `main` as the production branch.
+3. Select **Vite** as the framework. Use `npm run build` as the build command and `dist` as the output directory. Keep the repository root as the root directory.
+4. Click **Deploy**. No environment variables are required.
+5. Open the HTTPS URL Vercel assigns and check the navigation and links on a phone and desktop.
+6. Future pushes to `main` trigger production updates. Add a custom domain under the project's domain settings if desired.
+
+Deployment requires your hosting account and GitHub authorization. No live deployment has been created by this code setup.
+
+### Alternative: Netlify
+
+Import the same GitHub repository into Netlify. Use `npm run build`, publish directory `dist`, and branch `main`. Deploy using the provider's UI. You can also upload the built `dist` directory through Netlify's manual deployment flow.
+
+## Featured projects
+
+- [BuzzTap Business](https://buzztap-business.vercel.app/)
+- [BuzzTap Admin](https://buzztap-admin.vercel.app/)
+- [PV Monitoring System](https://pvmonitoringsystem.vercel.app/)
+- [AR-MS](https://ar-ms-nu.vercel.app/)
+
+These URLs were provided by Lee. Outbound requests to these hosts were blocked by the cloud network policy, so features, stacks, and external availability have not been independently verified. Project artwork is decorative branding, not application screenshots. Add your role, technologies, and outcomes to turn these into detailed case studies.

@@ -1054,3 +1054,12 @@ h2 > span {
 .project-screenshot:hover {
   background: #1b2315;
 }
+.project-info h3 {
+  align-items: flex-start;
+  gap: 14px;
+  line-height: 1.4;
+}
+.project-info h3 svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+}

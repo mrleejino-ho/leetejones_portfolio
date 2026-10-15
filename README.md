@@ -80,7 +80,7 @@ Import the same GitHub repository into Netlify. Use `npm run build`, publish dir
 
 - [BuzzTap Business](https://buzztap-business.vercel.app/)
 - [BuzzTap Admin](https://buzztap-admin.vercel.app/)
-- [PV Monitoring System](https://pvmonitoringsystem.vercel.app/)
-- [AR-MS](https://ar-ms-nu.vercel.app/)
+- [PEIS-AI — Photovoltaic Monitoring and Analysis System](https://pvmonitoringsystem.vercel.app/)
+- [ARMS — Application Real-Time Monitoring System](https://ar-ms-nu.vercel.app/)
 
-These URLs were provided by Lee. Outbound requests to these hosts were blocked by the cloud network policy, so features, stacks, and external availability have not been independently verified. Project previews use Lee’s supplied application screenshots. Each image links to the matching live application and preserves the full screenshot without cropping. If an image fails to load, the decorative branding remains available as a fallback. Add your role, technologies, and outcomes to turn these into detailed case studies.
+These URLs were provided by Lee. Outbound requests to these hosts were blocked by the cloud network policy, so external availability has not been independently verified. Project descriptions and technology stacks were supplied by Lee. Project previews use Lee’s supplied application screenshots. Each image links to the matching live application and preserves the full screenshot without cropping. If an image fails to load, the decorative branding remains available as a fallback. Add your role, technologies, and outcomes to turn these into detailed case studies.

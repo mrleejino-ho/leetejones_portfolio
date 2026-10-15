@@ -46,8 +46,8 @@ const projects = [
     name: "BuzzTap Business",
     category: "BUZZTAP · BUSINESS",
     description:
-      "The business-facing application in my BuzzTap project collection. Explore the deployed site below.",
-    stack: [],
+      "BuzzTap Business is a web platform that helps businesses manage customer accounts, product sales, inventory, and timed workstation sessions. It supports cash, shared BuzzPoints, and business-specific rewards, with customer approval for points payments. Role-based staff access, financial reports, transaction receipts, and activity logs help business owners oversee daily operations.",
+    stack: ["React", "Vite", "Tailwind CSS", "Vercel", "Supabase"],
     icon: Layers,
     label: "Business application",
     initials: "BT",
@@ -57,11 +57,11 @@ const projects = [
   },
   {
     id: "02",
-    name: "BuzzTap Admin",
+    name: "BuzzTap Admin — Platform Management Dashboard",
     category: "BUZZTAP · ADMIN",
     description:
-      "The administration application in my BuzzTap project collection. Visit the deployed site to take a closer look.",
-    stack: [],
+      "A centralized dashboard for managing the BuzzTap NFC and rewards platform. It enables administrators to manage businesses and customers, register NFC cards, oversee BuzzPoints funding and transactions, investigate payment approvals, and resolve customer disputes. Features include notification alerts, card expiration controls, payment activity monitoring, and business payment pause controls—all within a responsive black-and-yellow interface.",
+    stack: ["React", "Vite", "Tailwind CSS", "Vercel", "Supabase"],
     icon: Terminal,
     label: "Admin application",
     initials: "BT",
@@ -71,11 +71,19 @@ const projects = [
   },
   {
     id: "03",
-    name: "PV Monitoring System",
+    name: "PEIS-AI — Photovoltaic Monitoring and Analysis System",
     category: "MONITORING SYSTEM",
     description:
-      "My PV Monitoring System project. Open the deployed application to explore the interface.",
-    stack: [],
+      "A web-based solar monitoring system that collects and visualizes real sensor data, including panel temperature, ambient temperature, humidity, light intensity, voltage, current, and power output. It integrates Arduino-based sensor acquisition with a Python Flask backend and Supabase database to display live measurements and historical records. The system is designed to support Phase Change Material (PCM) thermal performance evaluation and Linear Regression analysis for predicting photovoltaic power output.",
+    stack: [
+      "Python",
+      "Flask",
+      "Supabase",
+      "SQL",
+      "Arduino Uno",
+      "ESP32",
+      "Linear Regression",
+    ],
     icon: Cpu,
     label: "PV monitoring",
     initials: "PV",
@@ -85,11 +93,11 @@ const projects = [
   },
   {
     id: "04",
-    name: "AR-MS",
+    name: "ARMS — Application Real-Time Monitoring System",
     category: "WEB APPLICATION",
     description:
-      "Another project from my development work. Explore AR-MS through its deployed application.",
-    stack: [],
+      "A centralized classroom monitoring platform designed to help teachers manage student accounts, class schedules, application permissions, and student application usage. It enables administrators and teachers to register students, configure application restrictions during scheduled classes, monitor recorded activity, and review violations and reports. Features include real-time database synchronization, automated restriction management, student enrollment, and a responsive dashboard for Grade 11 STEM at Santiago National High School.",
+    stack: ["React", "Vite", "Tailwind CSS", "Supabase", "Vercel"],
     icon: Code2,
     label: "AR-MS application",
     initials: "AR",

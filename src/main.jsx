@@ -424,6 +424,19 @@ function App() {
                   </section>
                   <section
                     className="background-card"
+                    aria-labelledby="eligibility-title"
+                  >
+                    <p className="eyebrow section-label">PUBLIC SERVICE</p>
+                    <h2 id="eligibility-title">Civil Service Eligibility</h2>
+                    <p className="record-date">Passed August 2026</p>
+                    <h3>Career Service Examination — Professional Level</h3>
+                    <p>Civil Service Commission</p>
+                    <p>
+                      <em>Certificate of Eligibility pending issuance.</em>
+                    </p>
+                  </section>
+                  <section
+                    className="background-card"
                     aria-labelledby="certificates-title"
                   >
                     <p className="eyebrow section-label">CONTINUOUS LEARNING</p>

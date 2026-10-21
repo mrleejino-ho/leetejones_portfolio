@@ -1505,3 +1505,119 @@ body {
     grid-template-columns: 1fr;
   }
 }
+/* Short entrance transitions replay when the selected page changes. */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes component-enter {
+  from {
+    opacity: 0;
+    translate: 0 10px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+#main-content {
+  animation: page-enter 280ms ease-out both;
+}
+.project-card,
+.skill-card,
+.background-card,
+.portrait-column,
+.contact-panel {
+  animation: component-enter 380ms ease-out both;
+}
+.project-card:nth-child(2),
+.skill-card:nth-child(2),
+.background-card:nth-child(2) {
+  animation-delay: 45ms;
+}
+.project-card:nth-child(3),
+.skill-card:nth-child(3),
+.background-card:nth-child(3) {
+  animation-delay: 90ms;
+}
+.project-card:nth-child(n + 4),
+.skill-card:nth-child(n + 4),
+.background-card:nth-child(n + 4) {
+  animation-delay: 135ms;
+}
+.nav a,
+.header-cta,
+.socials a,
+.contact-details a,
+.copy-button {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+.nav a::after {
+  transition:
+    width 180ms ease,
+    opacity 180ms ease;
+}
+.header-cta:hover {
+  background-color: #ffffff10;
+  border-color: #ffffff80;
+}
+.skill-card,
+.background-card {
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
+}
+.project-screenshot img {
+  transition: transform 320ms ease;
+}
+.button svg,
+.text-link svg {
+  transition: transform 180ms ease;
+}
+.button:hover svg,
+.text-link:hover svg {
+  transform: translate(2px, -2px);
+}
+@media (hover: hover) and (pointer: fine) {
+  .skill-card:hover,
+  .background-card:hover {
+    transform: translateY(-3px);
+    border-color: #ffffff70;
+  }
+  .project-screenshot:hover img {
+    transform: scale(1.025);
+  }
+}
+@media (max-width: 720px) {
+  .nav.open {
+    animation: page-enter 180ms ease-out both;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #main-content,
+  .project-card,
+  .skill-card,
+  .background-card,
+  .portrait-column,
+  .contact-panel,
+  .nav.open {
+    animation: none;
+  }
+  .skill-card:hover,
+  .background-card:hover,
+  .project-screenshot:hover img,
+  .button:hover svg,
+  .text-link:hover svg {
+    transform: none;
+  }
+}

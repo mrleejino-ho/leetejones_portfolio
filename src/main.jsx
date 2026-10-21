@@ -251,7 +251,7 @@ function App() {
           {menu ? <X /> : <Menu />}
         </button>
       </header>
-      <main id="main-content" ref={mainRef} tabIndex={-1}>
+      <main key={pathname} id="main-content" ref={mainRef} tabIndex={-1}>
         <Routes>
           <Route
             path="/"

@@ -107,6 +107,20 @@ const projects = [
     live: "https://ar-ms-nu.vercel.app/",
     screenshot: "/projects/arms.png",
   },
+  {
+    id: "05",
+    name: "AI-Driven Smart Pet Care System with Behavioral and Anomaly Detection Using Computer Vision and IoT",
+    category: "ACADEMIC RESEARCH · THESIS",
+    description:
+      "Designed and developed an intelligent pet care system integrating computer vision, artificial intelligence, and Internet of Things technologies to monitor pet behavior, automate feeding, and detect abnormal activities in real time.",
+    stack: ["Computer Vision", "Artificial Intelligence", "IoT"],
+    icon: Cpu,
+    label: "Thesis project",
+    initials: "AI",
+    repo: "",
+    live: "",
+    status: "Thesis project",
+  },
 ];
 const skills = [
   {
@@ -161,7 +175,7 @@ function ProjectArt({ project }) {
         <project.icon size={32} strokeWidth={1.25} />
       </div>
       <div className="cover-domain">
-        {new URL(project.live).hostname}
+        {project.live ? new URL(project.live).hostname : "Academic thesis"}
         <ArrowUpRight size={13} />
       </div>
     </div>
@@ -299,7 +313,10 @@ function App() {
           <Route
             path="/about"
             element={
-              <section id="about" className="section shell about">
+              <section
+                id="about"
+                className="section shell about about-expanded"
+              >
                 <div>
                   <p className="eyebrow section-label">
                     01 — THE PERSON BEHIND THE CODE
@@ -312,18 +329,125 @@ function App() {
                 </div>
                 <div className="about-copy">
                   <p>
-                    I’m Lee Tejones, a Computer Engineer and Developer
-                    interested in how things work — and how to make them work
-                    better.
+                    I’m Lee Tejones, a Computer Engineering graduate with
+                    experience in web development, embedded systems, and
+                    technical support.
                   </p>
                   <p>
-                    This is my space to share what I build, explore ideas, and
-                    connect with people who care about useful technology. My
-                    focus sits at the intersection of software, hardware, and
-                    human experience.
+                    Adaptable and eager to apply technical, organizational, and
+                    problem-solving skills in a professional environment. I’m
+                    interested in opportunities in technology and administrative
+                    support.
                   </p>
                   <Link className="text-link" to="/contact">
                     Let’s build something together <ArrowUpRight size={17} />
+                  </Link>
+                </div>
+                <div className="background-grid">
+                  <section
+                    className="background-card"
+                    aria-labelledby="education-title"
+                  >
+                    <p className="eyebrow section-label">ACADEMIC FOUNDATION</p>
+                    <h2 id="education-title">Education</h2>
+                    <p className="record-date">2022–2026</p>
+                    <h3>Bachelor of Science in Computer Engineering</h3>
+                    <p>Caraga State University – Cabadbaran Campus</p>
+                    <span className="record-badge">Cum Laude</span>
+                    <h3 className="coursework-title">Relevant coursework</h3>
+                    <ul>
+                      <li>Website and Application Development</li>
+                      <li>Programming and Software Development</li>
+                      <li>Microprocessors and Embedded Systems</li>
+                      <li>Database Management</li>
+                    </ul>
+                  </section>
+                  <section
+                    className="background-card"
+                    aria-labelledby="experience-title"
+                  >
+                    <p className="eyebrow section-label">HANDS-ON EXPERIENCE</p>
+                    <h2 id="experience-title">Technical internship</h2>
+                    <p className="record-date">July–August 2025</p>
+                    <h3>Technical On-the-Job Trainee</h3>
+                    <p>RabScor Electronics Engineering Services</p>
+                    <ul>
+                      <li>
+                        Assisted engineers and technical staff with daily
+                        operations and project implementation.
+                      </li>
+                      <li>
+                        Participated in technical documentation, testing, and
+                        equipment maintenance.
+                      </li>
+                      <li>
+                        Applied engineering principles to troubleshooting and
+                        system development tasks.
+                      </li>
+                    </ul>
+                  </section>
+                  <section
+                    className="background-card"
+                    aria-labelledby="leadership-title"
+                  >
+                    <p className="eyebrow section-label">WORKING WITH PEOPLE</p>
+                    <h2 id="leadership-title">Leadership experience</h2>
+                    <ol className="leadership-list">
+                      <li>
+                        <span className="record-date">2025</span>
+                        <div>
+                          <h3>President</h3>
+                          <p>
+                            Institute of Computer Engineers of the Philippines –
+                            Student Edition (ICpEP-SE)
+                          </p>
+                        </div>
+                      </li>
+                      <li>
+                        <span className="record-date">2024</span>
+                        <div>
+                          <h3>Vice President</h3>
+                          <p>
+                            Institute of Computer Engineers of the Philippines –
+                            Student Edition (ICpEP-SE)
+                          </p>
+                        </div>
+                      </li>
+                      <li>
+                        <span className="record-date">2023</span>
+                        <div>
+                          <h3>Auditor</h3>
+                          <p>College Local Student Government</p>
+                        </div>
+                      </li>
+                    </ol>
+                  </section>
+                  <section
+                    className="background-card"
+                    aria-labelledby="certificates-title"
+                  >
+                    <p className="eyebrow section-label">CONTINUOUS LEARNING</p>
+                    <h2 id="certificates-title">Certificates & training</h2>
+                    <ul className="certificate-list">
+                      <li>Introduction to Computer System Servicing</li>
+                      <li>Installing and Configuring Computer Systems</li>
+                      <li>Hazard Identification</li>
+                      <li>Risk Assessment and Control</li>
+                      <li>Fire Safety</li>
+                    </ul>
+                  </section>
+                </div>
+                <div className="research-callout">
+                  <div>
+                    <p className="eyebrow section-label">ACADEMIC RESEARCH</p>
+                    <h2>Engineering with a purpose.</h2>
+                    <p>
+                      My thesis explores computer vision, AI, and IoT through an
+                      intelligent pet care system.
+                    </p>
+                  </div>
+                  <Link className="button primary" to="/projects">
+                    Explore my projects <ArrowUpRight size={18} />
                   </Link>
                 </div>
               </section>
@@ -349,8 +473,8 @@ function App() {
                   </p>
                 </div>
                 <p className="content-note">
-                  Four projects from my development work. Explore each
-                  application below.
+                  Web applications, hardware-integrated systems, and academic
+                  research from my development work.
                 </p>
                 <div className="project-grid">
                   {projects.map((p) => (
@@ -365,7 +489,9 @@ function App() {
                           {p.name}
                           <p.icon size={21} />
                         </h3>
-                        <span className="project-status">Deployed project</span>
+                        <span className="project-status">
+                          {p.status || "Deployed project"}
+                        </span>
                         <p>{p.description}</p>
                         <div className="tags">
                           {p.stack.map((s) => (

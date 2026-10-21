@@ -1378,3 +1378,116 @@ body {
     font-size: 38px;
   }
 }
+.about-expanded {
+  row-gap: 50px;
+}
+.background-grid {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.background-card {
+  padding: 30px;
+  border: 1px solid #ffffff30;
+  border-radius: 12px;
+  background: #171d23b8;
+}
+.background-card h2 {
+  font:
+    italic 31px Georgia,
+    serif;
+  letter-spacing: -0.5px;
+  margin-bottom: 25px;
+}
+.background-card h3 {
+  font-size: 17px;
+  line-height: 1.5;
+  margin: 12px 0 8px;
+}
+.background-card p,
+.background-card li {
+  color: #dfe4e9;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.background-card .record-date {
+  font: 11px monospace;
+  letter-spacing: 1px;
+  color: #e1e5eb;
+}
+.record-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  margin-top: 16px;
+  border: 1px solid #ffffff45;
+  border-radius: 30px;
+  font-size: 12px;
+}
+.background-card .coursework-title {
+  margin-top: 30px;
+}
+.background-card ul {
+  padding-left: 18px;
+  margin-top: 18px;
+  list-style: disc;
+}
+.background-card ul li {
+  padding-left: 3px;
+  margin-bottom: 9px;
+}
+.leadership-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.leadership-list > li {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 16px;
+  margin-top: 22px;
+}
+.leadership-list .record-date {
+  margin-top: 5px;
+}
+.leadership-list h3 {
+  margin-top: 0;
+}
+.research-callout {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 35px;
+  padding: 30px;
+  border: 1px solid #ffffff30;
+  border-radius: 12px;
+}
+.research-callout h2 {
+  font:
+    italic 34px Georgia,
+    serif;
+  letter-spacing: -1px;
+}
+.research-callout p:not(.eyebrow) {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #e1e5eb;
+  margin-top: 15px;
+}
+.research-callout .button {
+  flex-shrink: 0;
+}
+@media (max-width: 720px) {
+  .background-grid {
+    grid-template-columns: 1fr;
+  }
+  .background-card {
+    padding: 25px;
+  }
+  .research-callout {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+  }
+}

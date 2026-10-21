@@ -434,6 +434,15 @@ function App() {
                     <p>
                       <em>Certificate of Eligibility pending issuance.</em>
                     </p>
+                    <div className="honor-eligibility">
+                      <h3>Honor Graduate Eligibility (HGE) — P.D. 907</h3>
+                      <p>
+                        Qualified as a Cum Laude graduate of the Bachelor of
+                        Science in Computer Engineering program at Caraga State
+                        University – Cabadbaran Campus.
+                      </p>
+                      <p>Civil Service Commission</p>
+                    </div>
                   </section>
                   <section
                     className="background-card"

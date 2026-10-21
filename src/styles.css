@@ -1491,3 +1491,8 @@ body {
     padding: 25px;
   }
 }
+.honor-eligibility {
+  border-top: 1px solid #ffffff30;
+  margin-top: 25px;
+  padding-top: 16px;
+}

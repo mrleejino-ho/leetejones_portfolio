@@ -1179,7 +1179,8 @@ body {
   justify-self: end;
 }
 .portrait-arch {
-  height: 485px;
+  aspect-ratio: 3 / 4;
+  height: auto;
   border-radius: 180px 180px 0 0;
   overflow: hidden;
   background: linear-gradient(160deg, #bec8d0, #39434c);
@@ -1316,9 +1317,6 @@ body {
     font-size: 68px;
     letter-spacing: -4px;
   }
-  .portrait-arch {
-    height: 405px;
-  }
   .header-cta {
     margin-left: 30px;
   }
@@ -1369,9 +1367,6 @@ body {
   .portrait-column {
     justify-self: center;
     max-width: 310px;
-  }
-  .portrait-arch {
-    height: 390px;
   }
   .hero-footer {
     margin-top: 0;

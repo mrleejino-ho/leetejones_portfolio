@@ -23,7 +23,7 @@ Edit `src/main.jsx`:
 - `projects`: contains your four supplied live applications. Add verified descriptions, technology stacks, and optional source repository URLs. Screenshot previews are stored in `public/projects/` and mapped by each project’s `screenshot` field. Empty stacks and repository links are hidden.
 - `skills`: replace suggested skill areas with technologies you actually use.
 - About and hero copy: personalize your interests and background.
-- `profile.portrait`: set to `/portrait.jpg` after placing your original photo in `public/portrait.jpg`. The arched hero currently displays an LT monogram until that photo is supplied.
+- `profile.portrait`: uses `/portrait.png`, extracted from your supplied PDF at 1086 × 1448 pixels (3:4). Replace `public/portrait.png` to update your portrait. The homepage keeps the same ratio on desktop and mobile.
 
 A résumé can be placed at `public/resume.pdf` and linked with `resume: '/resume.pdf'`. Do not publish private information in a résumé without checking it first.
 

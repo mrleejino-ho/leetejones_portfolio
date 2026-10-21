@@ -40,7 +40,7 @@ const profile = {
   github: "https://github.com/mrleejino-ho",
   linkedin: "",
   resume: "",
-  portrait: "",
+  portrait: "/portrait.png",
 };
 const projects = [
   {
@@ -266,7 +266,13 @@ function App() {
                 <div className="portrait-column">
                   <div className="portrait-arch">
                     {profile.portrait ? (
-                      <img src={profile.portrait} alt="Lee Tejones" />
+                      <img
+                        src={profile.portrait}
+                        alt="Lee Tejones"
+                        width={1086}
+                        height={1448}
+                        fetchPriority="high"
+                      />
                     ) : (
                       <div className="portrait-placeholder">
                         <span>LT</span>

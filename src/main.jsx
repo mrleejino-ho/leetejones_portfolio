@@ -448,6 +448,7 @@ function App() {
                         II
                       </h3>
                       <p>PTC–ADN · 25-day training program</p>
+                      <p>Started: October 5, 2026</p>
                       <p>Expected completion: November 6, 2026</p>
                       <p>
                         <em>

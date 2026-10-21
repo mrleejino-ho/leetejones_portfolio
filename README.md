@@ -21,13 +21,13 @@ Edit `src/main.jsx`:
 
 - `profile`: name, title, email, GitHub, LinkedIn, and optional résumé URL. Empty contact fields stay hidden. GitHub currently points to the repository owner's account; confirm it is your preferred public profile.
 - `projects`: contains your four supplied live applications and approved academic thesis. Add verified descriptions, technology stacks, and optional source repository URLs. Screenshot previews are stored in `public/projects/` and mapped by each project’s `screenshot` field. Empty stacks and repository links are hidden.
-- `skills`: replace suggested skill areas with technologies you actually use.
+- `skills`: contains Lee’s supplied web/design, backend/database, development/deployment, and hardware/IoT tools.
 - About and hero copy: personalize your interests and background.
 - `profile.portrait`: uses `/portrait.png`, extracted from your supplied PDF at 1086 × 1448 pixels (3:4). Replace `public/portrait.png` to update your portrait. The homepage keeps the same ratio on desktop and mobile.
 
 A résumé can be placed at `public/resume.pdf` and linked with `resume: '/resume.pdf'`. Do not publish private information in a résumé without checking it first.
 
-The About page contains Lee’s approved CV summary, university education and Cum Laude distinction, RabScor internship, leadership roles, relevant coursework, and certificates/training. Elementary and high school details are omitted. The thesis is included as an academic project without a fabricated live URL. The CV PDF is not published; résumé download remains disabled. Proposed skill refinements still need Lee’s approval.
+The About page contains Lee’s approved CV summary, university education and Cum Laude distinction, RabScor internship, leadership roles, relevant coursework, and certificates/training. Elementary and high school details are omitted. The thesis is included as an academic project without a fabricated live URL. The CV PDF is not published; résumé download remains disabled. The Skills page uses Lee’s supplied tool list.
 
 ## 3. Understand the source
 

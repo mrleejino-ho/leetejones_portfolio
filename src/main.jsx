@@ -125,21 +125,27 @@ const projects = [
 const skills = [
   {
     icon: Code2,
-    title: "Software development",
-    text: "Interfaces, application logic, and practical tools.",
-    tags: ["React", "JavaScript", "HTML & CSS", "Tailwind CSS"],
+    title: "Web development & design",
+    text: "Tools I use to build web and mobile interfaces and create visual designs.",
+    tags: ["React", "Tailwind CSS", "Vite", "Flutter", "Canva"],
   },
   {
-    icon: Cpu,
-    title: "Computer engineering",
-    text: "Where physical systems meet digital experiences.",
-    tags: ["Embedded systems", "Microcontrollers", "IoT", "Digital logic"],
+    icon: Layers,
+    title: "Backend & databases",
+    text: "Languages and tools I use for application logic, backend services, and data management.",
+    tags: ["JavaScript", "Python", "Flask", "Supabase", "SQL", "Node.js"],
   },
   {
     icon: Terminal,
-    title: "Developer workflow",
-    text: "A foundation for building and shipping thoughtfully.",
-    tags: ["Git & GitHub", "Linux", "REST APIs", "Vite"],
+    title: "Development & deployment",
+    text: "Tools I use to track code changes, manage repositories, and deploy applications.",
+    tags: ["Git", "GitHub", "Vercel"],
+  },
+  {
+    icon: Cpu,
+    title: "Hardware & IoT",
+    text: "Boards and components I use to connect software with physical systems.",
+    tags: ["Arduino Uno", "ESP32", "Raspberry Pi 4B", "Sensors & actuators"],
   },
 ];
 function ProjectArt({ project }) {
@@ -578,14 +584,13 @@ function App() {
                     </h1>
                   </div>
                   <p>
-                    Tools to explore.
+                    Tools I work with.
                     <br />
                     Skills to keep sharpening.
                   </p>
                 </div>
                 <p className="content-note">
-                  Suggested skill areas — customize these to reflect your
-                  experience.
+                  Technologies and tools I use in my projects.
                 </p>
                 <div className="skills-grid">
                   {skills.map((s) => (

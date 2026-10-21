@@ -467,6 +467,14 @@ function App() {
                       </p>
                     </div>
                     <ul className="certificate-list">
+                      <li>
+                        Closed-Circuit Television (CCTV) — currently covered in
+                        class
+                      </li>
+                      <li>
+                        Fire Detection and Alarm Systems (FDAS) — currently
+                        covered in class
+                      </li>
                       <li>Introduction to Computer System Servicing</li>
                       <li>Installing and Configuring Computer Systems</li>
                       <li>Hazard Identification</li>

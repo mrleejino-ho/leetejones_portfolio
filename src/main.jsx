@@ -16,6 +16,7 @@ import {
   Mail,
   Check,
   Copy,
+  Play,
 } from "lucide-react";
 import {
   BrowserRouter,
@@ -39,6 +40,7 @@ const profile = {
   github: "https://github.com/mrleejino-ho",
   linkedin: "",
   resume: "",
+  portrait: "",
 };
 const projects = [
   {
@@ -236,61 +238,48 @@ function App() {
             element={
               <section id="home" className="hero shell">
                 <div className="hero-main">
-                  <div className="eyebrow">
-                    <span className="status-dot" /> A MIND FOR SYSTEMS. A
-                    PASSION FOR BUILDING.
-                  </div>
                   <h1>
-                    Hi, I’m Lee.
-                    <br />I turn ideas into
+                    Hello, <em>I Am</em>
                     <br />
-                    <span>working things.</span>
+                    <span>Lee Tejones</span>
                   </h1>
                   <p className="hero-title">{profile.title}</p>
                   <p className="hero-description">
-                    Exploring the space between hardware and software.
-                    <br className="desktop-break" /> Building useful
-                    experiences, one thoughtful detail at a time.
+                    This is my space to share what I build, explore ideas, and
+                    connect with people who care about useful technology. My
+                    focus sits at the intersection of software, hardware, and
+                    human experience.
                   </p>
                   <div className="hero-actions">
                     <Link to="/projects" className="button primary">
-                      Explore my work <ArrowUpRight size={18} />
+                      View Work <ArrowUpRight size={18} />
                     </Link>
-                    <Link to="/about" className="text-link">
-                      A little about me <ArrowUpRight size={16} />
+                    <Link
+                      to="/about"
+                      className="about-play"
+                      aria-label="A little about me"
+                    >
+                      <Play size={18} fill="currentColor" />
                     </Link>
                   </div>
                 </div>
-                <div className="terminal-wrap">
-                  <div className="terminal">
-                    <div className="terminal-bar">
-                      <div className="window-dots">
-                        <i />
-                        <i />
-                        <i />
+                <div className="portrait-column">
+                  <div className="portrait-arch">
+                    {profile.portrait ? (
+                      <img src={profile.portrait} alt="Lee Tejones" />
+                    ) : (
+                      <div className="portrait-placeholder">
+                        <span>LT</span>
+                        <p>
+                          Computer Engineer
+                          <br />& Developer
+                        </p>
                       </div>
-                      <span>lee@workspace: ~</span>
-                      <Terminal size={14} />
-                    </div>
-                    <div className="terminal-body">
-                      <p>
-                        <span className="green">❯</span> cat about-me.json
-                      </p>
-                      <pre>
-                        {
-                          '{\n  "name": "Lee Tejones",\n  "role": [\n    "Computer Engineer",\n    "Developer"\n  ],\n  "approach": "Stay curious",\n  "next": "Keep building"\n}'
-                        }
-                      </pre>
-                      <p>
-                        <span className="green">❯</span>{" "}
-                        <span className="cursor" />
-                      </p>
-                    </div>
+                    )}
                   </div>
-                  <div className="terminal-caption">
-                    <span>01 / ALWAYS A WORK IN PROGRESS</span>
-                    <span>↳ THAT’S THE POINT.</span>
-                  </div>
+                  <span className="portrait-caption">
+                    LEE TEJONES / ENGINEER & DEVELOPER
+                  </span>
                 </div>
                 <div className="hero-footer">
                   <span>ENGINEERING MEETS CREATIVITY</span>

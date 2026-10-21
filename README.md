@@ -1,6 +1,6 @@
 # Lee Tejones · Personal Portfolio
 
-A responsive dark developer portfolio built with React 19, React Router, Tailwind CSS 4, Vite, and Lucide icons.
+A responsive charcoal-and-silver editorial portfolio built with React 19, React Router, Tailwind CSS 4, Vite, and Lucide icons.
 
 The persistent top navigation opens separate Home (`/`), About (`/about`), Projects (`/projects`), Skills (`/skills`), and Contact (`/contact`) pages. Each page highlights its navigation item and supports direct links, refreshes, and browser Back/Forward. Unknown routes show a recovery page.
 
@@ -23,6 +23,7 @@ Edit `src/main.jsx`:
 - `projects`: contains your four supplied live applications. Add verified descriptions, technology stacks, and optional source repository URLs. Screenshot previews are stored in `public/projects/` and mapped by each project’s `screenshot` field. Empty stacks and repository links are hidden.
 - `skills`: replace suggested skill areas with technologies you actually use.
 - About and hero copy: personalize your interests and background.
+- `profile.portrait`: set to `/portrait.jpg` after placing your original photo in `public/portrait.jpg`. The arched hero currently displays an LT monogram until that photo is supplied.
 
 A résumé can be placed at `public/resume.pdf` and linked with `resume: '/resume.pdf'`. Do not publish private information in a résumé without checking it first.
 

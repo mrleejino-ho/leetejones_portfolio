@@ -441,6 +441,21 @@ function App() {
                   >
                     <p className="eyebrow section-label">CONTINUOUS LEARNING</p>
                     <h2 id="certificates-title">Certificates & training</h2>
+                    <div className="ongoing-training">
+                      <span className="record-badge">Training in progress</span>
+                      <h3>
+                        TESDA Electrical Installation and Maintenance (EIM) NC
+                        II
+                      </h3>
+                      <p>PTC–ADN · 25-day training program</p>
+                      <p>Expected completion: November 6, 2026</p>
+                      <p>
+                        <em>
+                          Currently undertaking training; NC II certification
+                          has not yet been awarded.
+                        </em>
+                      </p>
+                    </div>
                     <ul className="certificate-list">
                       <li>Introduction to Computer System Servicing</li>
                       <li>Installing and Configuring Computer Systems</li>

@@ -1680,3 +1680,13 @@ body {
     font-size: 10px;
   }
 }
+.about-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 26px;
+}
+.about-actions .text-link {
+  margin-top: 0;
+}

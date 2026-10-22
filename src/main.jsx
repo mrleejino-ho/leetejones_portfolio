@@ -16,6 +16,7 @@ import {
   Mail,
   Check,
   Copy,
+  Download,
 } from "lucide-react";
 import {
   BrowserRouter,
@@ -38,7 +39,7 @@ const profile = {
   location: "Cabadbaran City, Agusan del Norte, Philippines",
   github: "https://github.com/mrleejino-ho",
   linkedin: "",
-  resume: "",
+  resume: "/resume.pdf",
   portrait: "/portrait.png",
 };
 const projects = [
@@ -359,9 +360,18 @@ function App() {
                     interested in opportunities in technology and administrative
                     support.
                   </p>
-                  <Link className="text-link" to="/contact">
-                    Let’s build something together <ArrowUpRight size={17} />
-                  </Link>
+                  <div className="about-actions">
+                    <a
+                      className="button primary"
+                      href={profile.resume}
+                      download="Lee-Tejones-CV.pdf"
+                    >
+                      Download CV <Download size={18} />
+                    </a>
+                    <Link className="text-link" to="/contact">
+                      Let’s build something together <ArrowUpRight size={17} />
+                    </Link>
+                  </div>
                 </div>
                 <div className="background-grid">
                   <section

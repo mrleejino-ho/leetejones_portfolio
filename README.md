@@ -27,7 +27,7 @@ Edit `src/main.jsx`:
 
 A résumé can be placed at `public/resume.pdf` and linked with `resume: '/resume.pdf'`. Do not publish private information in a résumé without checking it first.
 
-The About page contains Lee’s approved CV summary, university education and Cum Laude distinction, RabScor internship, leadership roles, relevant coursework, and certificates/training. Elementary and high school details are omitted. The thesis is included as an academic project without a fabricated live URL. The CV PDF is not published; résumé download remains disabled. The Skills page uses Lee’s supplied tool list.
+The About page contains Lee’s approved CV summary, university education and Cum Laude distinction, RabScor internship, leadership roles, relevant coursework, and certificates/training. Elementary and high school details are omitted. The thesis is included as an academic project without a fabricated live URL. Lee’s uploaded CV is published at `public/resume.pdf` and downloadable from the About page. Replace this file to update the downloadable document. The Skills page uses Lee’s supplied tool list.
 
 ## 3. Understand the source
 

@@ -1621,3 +1621,62 @@ body {
     transform: none;
   }
 }
+.hero-identity {
+  font:
+    10px/1.8 Arial,
+    sans-serif;
+  letter-spacing: 1.8px;
+  color: #e2e7ed;
+  margin-bottom: 20px;
+}
+.client-hero h1 {
+  font-size: clamp(48px, 5vw, 74px);
+  letter-spacing: -3px;
+  line-height: 1.15;
+}
+.client-hero h1 > span {
+  white-space: normal;
+}
+.client-hero .hero-title {
+  font-size: 11px;
+  line-height: 1.8;
+  letter-spacing: 1.2px;
+}
+.hero-supporting {
+  color: #e0e5eb;
+  font-size: 13px;
+  line-height: 1.8;
+  max-width: 540px;
+  margin-top: 15px;
+}
+.hero-service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+.hero-service-tags span {
+  border: 1px solid #ffffff40;
+  border-radius: 25px;
+  padding: 7px 11px;
+  font-size: 10px;
+  color: #f0f3f5;
+}
+.client-hero .hero-actions {
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 28px;
+}
+@media (max-width: 720px) {
+  .client-hero h1 {
+    font-size: clamp(40px, 8.5vw, 58px);
+    letter-spacing: -2px;
+  }
+  .hero-identity {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+  .client-hero .hero-title {
+    font-size: 10px;
+  }
+}

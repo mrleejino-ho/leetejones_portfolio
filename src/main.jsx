@@ -16,7 +16,6 @@ import {
   Mail,
   Check,
   Copy,
-  Play,
 } from "lucide-react";
 import {
   BrowserRouter,
@@ -257,29 +256,44 @@ function App() {
             path="/"
             element={
               <section id="home" className="hero shell">
-                <div className="hero-main">
-                  <h1>
-                    Hello, <em>I Am</em>
-                    <br />
-                    <span>Lee Tejones</span>
-                  </h1>
-                  <p className="hero-title">{profile.title}</p>
-                  <p className="hero-description">
-                    This is my space to share what I build, explore ideas, and
-                    connect with people who care about useful technology. My
-                    focus sits at the intersection of software, hardware, and
-                    human experience.
+                <div className="hero-main client-hero">
+                  <p className="hero-identity">
+                    LEE TEJONES · COMPUTER ENGINEER & DEVELOPER
                   </p>
+                  <h1>
+                    Less tech friction.
+                    <br />
+                    <span>More room to grow.</span>
+                  </h1>
+                  <p className="hero-title">
+                    Technical Virtual Assistant | Web & Business Systems
+                  </p>
+                  <p className="hero-description">
+                    I help business owners keep their websites, data, and
+                    digital tools working for them. From website updates and
+                    database support to organized reports and Canva visuals, I
+                    bring a developer’s problem-solving approach to your
+                    day-to-day operations.
+                  </p>
+                  <p className="hero-supporting">
+                    Based in the Philippines, supporting clients worldwide.
+                    Explore my projects to see how I build practical business
+                    and monitoring systems.
+                  </p>
+                  <div
+                    className="hero-service-tags"
+                    aria-label="Services offered"
+                  >
+                    <span>Website support</span>
+                    <span>Data & reporting</span>
+                    <span>Digital tools & design</span>
+                  </div>
                   <div className="hero-actions">
-                    <Link to="/projects" className="button primary">
-                      View Work <ArrowUpRight size={18} />
+                    <Link to="/contact" className="button primary">
+                      Let’s discuss your needs <ArrowUpRight size={18} />
                     </Link>
-                    <Link
-                      to="/about"
-                      className="about-play"
-                      aria-label="A little about me"
-                    >
-                      <Play size={18} fill="currentColor" />
+                    <Link to="/projects" className="text-link">
+                      See my projects <ArrowUpRight size={16} />
                     </Link>
                   </div>
                 </div>
@@ -308,7 +322,7 @@ function App() {
                   </span>
                 </div>
                 <div className="hero-footer">
-                  <span>ENGINEERING MEETS CREATIVITY</span>
+                  <span>TECHNICAL SUPPORT. BUSINESS FOCUS.</span>
                   <Link to="/about">
                     GET TO KNOW ME <ArrowUpRight size={13} />
                   </Link>
